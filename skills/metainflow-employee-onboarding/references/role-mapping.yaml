@@ -1,0 +1,48 @@
+version: "1.0"
+roles:
+  ai_fullstack_developer:
+    aliases: ["全栈开发", "AI开发", "Agent全栈开发", "AI/LLM开发"]
+    baseline:
+      - {resource: feishu, permission: basic_account, source_mapping: role.ai_fullstack_developer.baseline, acceptance_check: feishu_login}
+      - {resource: engineering_base, permission: read, source_mapping: role.ai_fullstack_developer.baseline, acceptance_check: base_access}
+      - {resource: github_org, permission: member, source_mapping: role.ai_fullstack_developer.baseline, acceptance_check: github_org_access}
+      - {resource: codex, permission: use, source_mapping: role.ai_fullstack_developer.baseline, acceptance_check: codex_start}
+      - {resource: feynman, permission: api_usage, source_mapping: role.ai_fullstack_developer.baseline, acceptance_check: feynman_minimal_request}
+      - {resource: local_dev_tools, permission: install_and_verify, source_mapping: role.ai_fullstack_developer.baseline, acceptance_check: environment_check}
+    defaults_denied: [production_ssh, feynman_admin, sub2api_admin, newapi_admin, cloud_console, customer_production_data]
+  product_project:
+    aliases: ["业务", "产品", "项目", "产品经理", "项目管理"]
+    baseline:
+      - {resource: feishu, permission: basic_account, source_mapping: role.product_project.baseline, acceptance_check: feishu_login}
+      - {resource: engineering_base, permission: read_write, source_mapping: role.product_project.baseline, acceptance_check: base_access}
+      - {resource: product_docs, permission: read, source_mapping: role.product_project.baseline, acceptance_check: docs_access}
+    defaults_denied: [production_ssh, feynman_admin, sub2api_admin, cloud_console, database_write]
+  tester:
+    aliases: ["测试工程师", "测试"]
+    baseline:
+      - {resource: feishu, permission: basic_account, source_mapping: role.tester.baseline, acceptance_check: feishu_login}
+      - {resource: engineering_base, permission: read_write, source_mapping: role.tester.baseline, acceptance_check: base_access}
+      - {resource: test_environment, permission: use, source_mapping: role.tester.baseline, acceptance_check: test_login}
+    defaults_denied: [production_ssh, feynman_admin, sub2api_admin, cloud_console, database_write]
+  infrastructure_operator:
+    aliases: ["基础设施", "运维", "基础设施运维"]
+    baseline:
+      - {resource: feishu, permission: basic_account, source_mapping: role.infrastructure_operator.baseline, acceptance_check: feishu_login}
+      - {resource: engineering_base, permission: read_write, source_mapping: role.infrastructure_operator.baseline, acceptance_check: base_access}
+      - {resource: feynman, permission: admin, source_mapping: role.infrastructure_operator.baseline, acceptance_check: feynman_admin_review}
+    defaults_denied: [customer_production_data]
+business_lines:
+  Cowdy:
+    dependencies: [cowdy_repository, cowdy_test_environment]
+  BaseBuilder:
+    dependencies: [basebuilder_repository, basebuilder_test_environment]
+  Skill线上沙盒框架:
+    dependencies: [skill_runner_repository, sandbox_test_environment]
+  大兴:
+    dependencies: [daxing_repository, daxing_uat]
+  Feynman反代服务:
+    dependencies: [feynman_repository]
+project_rules:
+  assigned_task_required: true
+  temporary_default: true
+  default_expiry: project_end_plus_1_business_day
