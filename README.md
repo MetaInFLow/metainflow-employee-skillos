@@ -1,6 +1,6 @@
 # INF | MetaInFlow Employee SkillOS
 
-![inF Logo](assets/inF-app-icon-256.png)
+![inF Logo](assets/inF-lockup-field-black-2048.png)
 
 **MetaInFlow 源子 AI · 员工 SkillOS**
 
