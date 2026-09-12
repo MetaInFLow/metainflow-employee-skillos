@@ -1,0 +1,10 @@
+{
+  "name": "metainflow-employee-skillos",
+  "version": "0.3.0",
+  "description": "MetaInFlow 源子 AI 员工入职与工作准备 SkillOS。",
+  "interface": {"displayName": "INF | MetaInFlow Employee SkillOS"},
+  "author": {"name": "MetaInFlow"},
+  "repository": "https://github.com/MetaInFLow/metainflow-employee-skillos",
+  "license": "MIT",
+  "keywords": ["metainflow", "employee", "onboarding", "feishu", "skillos"]
+}
