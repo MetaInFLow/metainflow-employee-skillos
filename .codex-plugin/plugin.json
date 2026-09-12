@@ -2,7 +2,15 @@
   "name": "metainflow-employee-skillos",
   "version": "0.3.0",
   "description": "MetaInFlow 源子 AI 员工入职与工作准备 SkillOS。",
-  "interface": {"displayName": "INF | MetaInFlow Employee SkillOS"},
+  "interface": {
+    "displayName": "INF | MetaInFlow Employee SkillOS",
+    "shortDescription": "欢迎加入 MetaInFlow 源子 AI（深圳）。",
+    "longDescription": "帮助 MetaInFlow 新员工完成飞书、GitHub、个人信息登记和本地工作区准备。",
+    "developerName": "MetaInFlow",
+    "category": "Productivity",
+    "defaultPrompt": "当用户请求员工入职或工作环境准备时，运行 metainflow-employee-onboarding。",
+    "capabilities": ["employee onboarding", "Feishu setup", "GitHub setup", "local workspace bootstrap"]
+  },
   "author": {"name": "MetaInFlow"},
   "repository": "https://github.com/MetaInFLow/metainflow-employee-skillos",
   "license": "MIT",
