@@ -1,9 +1,8 @@
 # INF | MetaInFlow Employee SkillOS
 
-```text
-INF
-MetaInFlow 源子 AI
-```
+![inF Logo](assets/inF-app-icon-256.png)
+
+**MetaInFlow 源子 AI · 员工 SkillOS**
 
 欢迎加入 MetaInFlow 源子 AI（深圳）。
 
